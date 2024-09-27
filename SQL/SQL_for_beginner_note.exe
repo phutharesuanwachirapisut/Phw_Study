@@ -1,0 +1,376 @@
+
+EP3. ติดตั้ง SQLite และ โปรแกรมสำหรับการเรียนรู้
+sqlite จะไม่แสดง output จึงต้องมี sqbroswer
+________________________________________________________________________________________________________________
+EP4. โครงสร้าง และ คำสั่ง SQL พื้นฐานที่เราจะพบเจอ
+Table คือ ตารางตามชื่อไว้เก็บข้อมูลเหมือนใน excel ใหญ่กว่า Field
+
+Field คือ ชื่อ Column, ชื่อของข้อมูลที่เราจะเก็บ, ชื่อตัวแปร
+
+Primary Key เหมือน key ใน dictionary 
+
+Note: มักจะไม่เก็บข้อมูลอายุเป็นตัวเลข เพราะมันอัพเดตตลอดเวลาทำให้ข้อมูลเดิมจะเป็นข้อมูลเก่า จึงมักเก็บเป็นวันเดือนปีเกิด
+________________________________________________________________________________________________________________
+EP6. เรียนรู้คำสั่ง SELECT ที่พื้นฐานที่สุด
+Select is promt that can take data form database
+
+    SELECT * FROM (__table__);
+
+select = เลือก 
+
+* = ทั้งหมด
+
+from = จาก 
+________________________________________________________________________________________________________________
+EP7. เรียนรู้คำสั่งการ SELECT เฉพาะบาง Column
+
+    SELECT name1, name2 FROM table;
+
+เลือกเฉพาะ name นั้น ๆ ไม่ใใช่ * ที่หมายถึงทั้งหมด
+
+ใส่ลูกน้ำคั่นไว้ เพื่อเป็นการเลือกและแสดงลำดับของ output แม้ว่าจากใน table name2 จะมาก่อน name1 ถ้าใช้คำสั่งข้างต้น name 1 จะแสดงผลในลำดับก่อน name2
+________________________________________________________________________________________________________________
+EP8. การใช้งาน AS เพื่อเปลี่ยนชื่อ Column 
+
+    SELECT Name00 AS Name01 FROM Table;
+
+จะเปลี่ยนชื่อ Column จาก Name00 เป็น Name01 สามารถเปลี่ยนให้ซ้ำกันได้แต่ไม่สมควรทำอย่างยิ่ง เช่น
+
+    SELECT Name00 AS Name01, Name02 AS Name01 FROM Table;
+
+เพราะระบบจะไม่รู้ว่าเราต้องการตัวไหน
+________________________________________________________________________________________________________________
+EP9. การใช้งานเงื่อนไข WHERE ในการเรียกค้นข้อมูล
+comment = /*comment*/
+
+    WHERE filed = parameter; 
+
+/* เป็นการดึงข้อมูลของ filed ที่มีค่าเท่ากับค่าที่เราต้องการ*/
+
+/* parameter ต้องเป็น integer float string boolean
+
+    SELECT firstname, lastname FROM customers
+    WHERE customerid = 4;
+
+หมายถึง แสดงข้อมูล ของ firstname และ lastname ของ customerid ที่เท่ากับ 4
+
+ใช้ AND และ OR ใน where ได้
+
+ถ้าให้สรุป where ก็เหมือน IF ที่ต้องทำให้เป็น True
+________________________________________________________________________________________________________________
+EP10. การเรียงลำดับกับ ORDER BY 
+
+    ORDER BY field;
+
+เรียงข้อมูลจากน้อยไปหามาก แบบ sort
+
+    ORDER BY field DESC;
+
+เรียงข้อมูลย้อนกลับ เป็นมากไปน้อย
+________________________________________________________________________________________________________________
+EP11. จำกัดปริมาณข้อมูลด้วย LIMIT
+
+    LIMIT (number);
+
+จำกัดการแสดงผลแค่ number unit
+
+เช่นใช้ในกรณีดูความถี่มากที่สุดของการใช้บริการของลูกค้าเก่าจำนวน number คน
+________________________________________________________________________________________________________________
+EP13. การ Insert ข้อมูลด้วย SQL
+
+    INSERT INTO /*TABLE*/ VALUES();
+
+IS INSERT DATA TO TABLE BY DATA HAS VALUES THAT WE INPUT TO 
+
+ATTENTION!! NUMBER OF INPUT EQUAL NUMBER OF COLUMN (FIELD)
+
+SUGGESTION: WE CAN USE NULL FOR NONE DATA
+
+    INSERT INTO /*TABLE*/ (FIELD1,FIELD2,FIELD3) VALUES (DATAINPUTINFIELD1,DATAINPUTINFIELD2,DATAINPUTINFIELD3);
+
+CAN INSERT SAME AS THE LINE ABOVE BUT THIS SOLUTION DO NOT INPUT DATA TO ALL OF COLUMN
+________________________________________________________________________________________________________________
+EP14. การ Update ฐานข้อมูลด้วย SQL
+
+    UPDATE /*TABLE*/
+    SET FIRSTNAME = 'DORAEMON'
+    WHERE CUSTOMERID = 4
+
+MEANING IS IN TABLE AND IN ROW CUSTOMERID = 4 WE WILL CHANGE FIRSTNAME INTO "DORAEMON" BY DONT CARE ABOUT WHAT WAS DATA BEFORE IN FIELD FIRSTNAME AND ROW CUSTOMERID 4
+________________________________________________________________________________________________________________
+
+EP15. การ Delete ฐานข้อมูลด้วย SQL
+
+DELETE DATA
+
+    DELETE FROM /*TABLE*/
+    WHERE CUSTOMERID = 62
+
+MEANING: DELETE ALL DATA IN ROW CUSTOMERID = 62 IN THE SAME WAY CUSTOMERID = 62 WILL BE DELETED.
+________________________________________________________________________________________________________________
+EP17. การใช้งานคำสั่ง COUNT เพื่อนับข้อมูล
+
+    SELECT COUNT(table_name)
+    FROM field_name
+    WHERE condition
+
+MEANING WILL COUNT NUMBER OF FIELD THAT IN THE CONDITION
+OR Use the correct function to return the number
+________________________________________________________________________________________________________________
+EP18. เรียนรู้การหาค่าเฉลี่ย และ ผลรวมด้วย AVG กับ SUM
+
+    SELECT AVG(table_name)
+    FROM field_name;
+
+FINDING AVERAGE OF ALL DATA IN FIELD_NAME
+
+    SELECT SUM(table_name)
+    FROM FIELD_NAME;
+
+FINDING SUMATION OF ALL DATA IN FIELD_NAME
+________________________________________________________________________________________________________________
+EP19. การหาค่ามากที่สุด และ น้อยที่สุดด้วย MIN MAX
+
+    SELECT min(TABLE_NAME)
+    FROM FIELD_NAME;
+
+
+    SELECT max(TABLE_NAME)
+    FROM FIELD_NAME;
+________________________________________________________________________________________________________________
+EP20. การจัดรวมกลุ่มด้วย Group By
+
+    SELECT COUNT(FIELD_NAME) -> count(CUSTOMERID), FIELD_NAME_2 -> CITY
+    FROM TABLE_NAME
+    GROUP BY FIELD_NAME_2 -> CITY
+
+OUTPUT IS NUMBER OF FIELD_NAME IN COLUMN FIRST AND INTER SECIND COLUMN WILL SHOW FIELD_NAME_2
+
+IF YOU CHANGE FIELD_NAME_2 TO FIELD_NAME THAT WILL SHOW YOU THE NUMBER OF EACH OF CUSTOMERID IN THE FIRST COLUMN AND IN THE SECOND THEY WILL SHOW YOU NAME OF CITY
+SO!! 
+
+    GROUP BY FIELD_NAME
+
+USE FOR REFERED TO FIELD_NAME
+________________________________________________________________________________________________________________
+EP22. Having สิ่งที่เหมือน และ แตกต่างกับ WHERE
+
+    SELECT count(CustomerId) AS QUANTITY, Country
+    FROM customers  
+    GROUP BY Country
+    HAVING Quantity >= 5
+    ORDER BY Quantity DESC;
+
+HAVING IS THE SAME OF WHERE IN ANOTHER WAY HAVING USE FOR AGGREGATE FUNCTION AND AFTER GROUP BY
+________________________________________________________________________________________________________________
+EP25. เรียนรู้กับลำดับของคำสั่งใน SQL ให้ชัดเจนอีกครั้ง
+
+    SELECT COLUMN_NAME
+    FROM TABLE_NAME
+    WHERE CONDITION
+    GROUP BY COLUMN_NAME
+    HAVING CONDITION
+    ORDER BY COLUMN_NAME
+    LIMIT NUMBER_OF_ROW;
+________________________________________________________________________________________________________________
+EP27. ตัวอย่างการใช้งานภาษา SQL กับการพัฒนาโปรแกรมจริง ๆ
+
+    import sqlite3
+
+    variable_name_1 = sqlite3.connect("database_name.db")
+
+    variable_name_2 = variable_name_1.execute("sql code")
+
+    for row in variable_name_2:
+        print(row[0], row[1], row[2])
+
+showing each of data from field
+________________________________________________________________________________________________________________
+EP30. เรียนรู้กับคำสั่ง IN
+function "IN" will instead of "="
+
+    SELECT * FROM employees
+    WHERE field_name in ("column_name_1","column_name_2")
+________________________________________________________________________________________________________________
+EP32. เรียนรู้กับคำสั่ง BETWEEN
+
+    WHERE FIELD_NAME BETWEEN DIGIT_A AND DIGIT_B
+
+WORK BY SHOWING DATA IN CONDITION BETWEEN 
+________________________________________________________________________________________________________________
+EP37. การใช้งาน Inner Join
+
+    SELECT TABLE_NAME.FIELD_NAME
+    FROM TABLE_1
+    INNER JOIN TABLE_2 
+    ON (INTERSECT_COLUMN_NAME CONDITION)
+
+WORK BY FIND THE SAME COLUMN_NAME AND JOIN IT AFTER THAT OUTPUT TABLE_NAME.FIELD_NAME IN TABLE_1
+
+EXAMPLE
+
+    SELECT invoices.InvoiceId, customers.FirstName
+    , customers.LastName, invoices.total
+    FROM invoices
+    INNER JOIN customers 
+    ON customers.CustomerId = invoices.CustomerId
+    ORDER BY InvoiceId ASC;
+________________________________________________________________________________________________________________
+
+EP38. การใช้งาน LEFT JOIN
+LEFT (OUTER) JOIN IS DIFFERENT TO INNER JOIN, LEFT (OUTER) JOIN IS STILL KEEP DATA IN LEFT BUT INNER JOIN IS ALSO KEEP INTERSECTION DATA
+
+NOTE: LEFT IS BACKWARD OF JOIN
+
+AND RIGHT IS BACKWARD OF ON
+________________________________________________________________________________________________________________
+EP42. การกำหนดเงื่อนไขในการประมวลผลด้วย CASE
+
+    SELECT InvoiceId, total,
+    CASE WHEN TOTAL >= 10 THEN "AAA"
+    WHEN TOTAL < 10 AND TOTAL >= 5 THEN 'AA'
+    WHEN TOTAL < 5 THEN 'A'
+    ELSE 'NONE'
+    END AS RESULT
+    FROM invoices
+    LIMIT 100;
+________________________________________________________________________________________________________________
+EP43. การใช้งาน SubQueries เพื่อซ้อนลงไปอีก
+
+    SELECT FIELD_NAME
+    FROM TABLE_NAME
+    WHERE VALUE IN (SELECT FIELD_NAME_001 FROM TABLE_NAME_001 WHERE CONDITION)
+
+    SELECT COLUMN_1 = (SELECT COLUMN_NAME FROM TABLE_NAME WHERE CONDITION), COLUMN_NAME
+    FROM TABLE_NAME
+    WHERE CONDITION
+________________________________________________________________________________________________________________
+Note: 
+    1. DISTINCT = SELECT DISTINCT COLUMN FROM TABLE ---> MEANS SELECTS ALL THE DIFFERENT VALUES FROM THE COLUMN IN THE TABLE.
+    2. where the second letter of the City is an "a".
+
+        WHERE City LIKE '_a%'; 
+
+    3. where the first letter of the City is an "a" or "c" or "s".
+
+        WHERE City LIKE '[acs]%';
+    
+    4. where the first letter of the City is an "a" to "f".
+
+        WHERE City LIKE '[a-f]%';
+
+    5. ALIAS = เป็นการตั้งนามแฝง AS
+    6. DATABASE
+    
+        6.1 Created a database called testDB.
+
+            CREATE DATABASE testDB;
+
+        6.2 Delete a database [or TABLE] named testDB.
+
+            DROP DATABASE [or TABLE] testDB;
+
+        6.2 Write the correct SQL statement to create a new table called Persons.
+
+            CREATE TABLE Persons
+            (
+            PersonID int,
+            LastName varchar(255),
+            FirstName varchar(255),
+            Address varchar(255),
+            City varchar(255) 
+            );
+        
+        6.3 delete all data inside a table.
+        
+            TRUNCATE TABLE Persons;
+        
+        6.4 Add a column of type DATE called Birthday.
+
+            ALTER TABLE Persons
+            ADD Birthday DATE;
+
+        6.5 Delete the column Birthday from the Persons table.
+        
+            ALTER TABLE Persons
+            DROP COLUMN Birthday;
+
+    7. REGEXP => SELECT * from table where fieldname regexp '^[0-9]'; เป็นการเช็คว่าข้อมูลอยู่ใน 0-9 หรือไม่
+
+    8. RIGHT(FIELD, NUMBER) -> เลือกเอาจำนวน NUMBER ตัว ของ FIELD ในทางขวา
+    9. LEFT(FIELD, NUMBER) -> เลือกเอาจำนวน NUMBER ตัว ของ FIELD ในทางซ้าย
+
+    10. ROW number() OVER (ORDER BY) = เป็นการการจัดอันดับให้กับข้อมูล ที่อยูํ่ไ
+    11. CAST(expression AS datatype(length)) เช่น SELECT CAST(25.65 AS int); แปลง 25.65 เป็น int
+
+    12. PERCENTILE_CONT(เปอร์เซ็นไทล์ที่ x) WITHIN GROUP (ORDER BY) เป็นการหาค่า median ที่เปอร์เซ็นไทล์ที่ x
+
+    13. 
+        SELECT ROUND(S.LAT_N, 4) AS MEDIAN
+        FROM STATION AS S                   
+        WHERE (                             
+            SELECT COUNT(LAT_N) FROM STATION WHERE LAT_N < S.LAT_N
+            ) = (
+                SELECT COUNT(LAT_N) FROM STATION WHERE LAT_N > S.LAT_N
+                );
+
+        Visualizer
+        ตาราง STATION 
+        LAT_N
+        10.0
+        20.0
+        30.0
+        40.0
+        50.0
+
+        Alias S Duplicate จากตาราง STATION
+        S.LAT_N
+        10.0
+        20.0
+        30.0
+        40.0
+        50.0
+
+        คำนวณจำนวนค่า LAT_N ที่น้อยกว่าและมากกว่าแต่ละค่า S.LAT_N
+
+        สำหรับค่า S.LAT_N = 10.0:
+        ค่า LAT_N ที่น้อยกว่า 10.0: 0 (ไม่มี)
+        ค่า LAT_N ที่มากกว่า 10.0: 4 (20.0, 30.0, 40.0, 50.0)
+        -> ไม่ผ่านเงื่อนไข
+
+        สำหรับค่า S.LAT_N = 20.0:
+        ค่า LAT_N ที่น้อยกว่า 20.0: 1 (10.0)
+        ค่า LAT_N ที่มากกว่า 20.0: 3 (30.0, 40.0, 50.0)
+        -> ไม่ผ่านเงื่อนไข
+
+        สำหรับค่า S.LAT_N = 30.0:
+        ค่า LAT_N ที่น้อยกว่า 30.0: 2 (10.0, 20.0)
+        ค่า LAT_N ที่มากกว่า 30.0: 2 (40.0, 50.0)
+        -> ผ่านเงื่อนไข
+
+        สำหรับค่า S.LAT_N = 40.0:
+        ค่า LAT_N ที่น้อยกว่า 40.0: 3 (10.0, 20.0, 30.0)
+        ค่า LAT_N ที่มากกว่า 40.0: 1 (50.0)
+        -> ไม่ผ่านเงื่อนไข
+
+        สำหรับค่า S.LAT_N = 50.0:
+        ค่า LAT_N ที่น้อยกว่า 50.0: 4 (10.0, 20.0, 30.0, 40.0)
+        ค่า LAT_N ที่มากกว่า 50.0: 0 (ไม่มี)
+        -> ไม่ผ่านเงื่อนไข
+
+        ผลลัพธ์ที่ผ่านเงื่อนไข
+        ค่า S.LAT_N ที่ทำให้จำนวนข้อมูลที่มีค่า LAT_N น้อยกว่าค่า S.LAT_N เท่ากับจำนวนข้อมูลที่มีค่า LAT_N มากกว่าค่า S.LAT_N คือ 30.0
+        
+        การปัดเศษค่า
+            ROUND(30.0, 4) AS median
+        ผลลัพธ์จะเป็น:
+            median = 30.0000
+
+    /*
+แสดง  Name, Grade and Mark
+ถ้า Grade ต่ำกว่า 8 จะแสดง NULL
+    --  กรณี Grade มากกว่า 8: เรียงตาม Grade มากไปน้อย ถ้าเท่ากับให้เรียงตามชื่อ
+    --  กรณี Grade ต่ำกว่า 8: เรียงจาก Mark น้อยไปมาก ถ้าเท่ากับให้เรียงตามชื่อ
+*/
+
+

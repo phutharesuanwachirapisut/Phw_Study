@@ -1,0 +1,140 @@
+[{
+  "_id": {
+    "$oid": "66921ca83b2d1d818fdedafb"
+  },
+  "command": " Clear",
+  "working": " command k"
+},
+{
+  "_id": {
+    "$oid": "66921ca83b2d1d818fdedafc"
+  },
+  "command": " touch file name",
+  "working": " Create New File"
+},
+{
+  "_id": {
+    "$oid": "66921ca83b2d1d818fdedafd"
+  },
+  "command": " git init",
+  "working": " สร้าง hidden folder .git"
+},
+{
+  "_id": {
+    "$oid": "66921ca83b2d1d818fdedafe"
+  },
+  "command": " git status",
+  "working": " showing status in .git"
+},
+{
+  "_id": {
+    "$oid": "66921ca83b2d1d818fdedaff"
+  },
+  "command": " git add file",
+  "working": " add file to .git (add . = add all file to git)"
+},
+{
+  "_id": {
+    "$oid": "66921ca83b2d1d818fdedb00"
+  },
+  "command": " git rm --cached  file",
+  "working": " remove file from .git"
+},
+{
+  "_id": {
+    "$oid": "66921ca83b2d1d818fdedb01"
+  },
+  "command": " git commit -m “ข้อความใด ๆ “",
+  "working": " เป็นการเพิ่มไฟล์เข้าไปใน Project เมื่อมีการแก้ไข ทำทุกครั้งที่มีการ add"
+},
+{
+  "_id": {
+    "$oid": "66921ca83b2d1d818fdedb02"
+  },
+  "command": " git log",
+  "working": " เป็นการดูประวัติ ของคนที่ทำการจัดเก็บตัว version ทราบว่าใครแก้ไข และ วันเวลาใด สามารถนำมาใช้กับ —oneline เพื่อแสดงให้เป็นแถวเดียวได้"
+},
+{
+  "_id": {
+    "$oid": "66921ca83b2d1d818fdedb03"
+  },
+  "command": " git diff  เลข commit ID (เลขตอน commit ดูจาก git log. สามารถใส่หลายตัวได้)",
+  "working": " แสดงการเปลี่ยนแปลง ---old ver. , +++ latest ver."
+},
+{
+  "_id": {
+    "$oid": "66921ca83b2d1d818fdedb04"
+  },
+  "command": " git checkout File name",
+  "working": " เป็นการ Undo แม้กระทั่ง save แล้วและยังไม่ save"
+},
+{
+  "_id": {
+    "$oid": "66921ca83b2d1d818fdedb05"
+  },
+  "command": " Git reset file name",
+  "working": " remove file from .git"
+},
+{
+  "_id": {
+    "$oid": "66921ca83b2d1d818fdedb06"
+  },
+  "command": " Git reset --soft",
+  "working": " ลบไฟล์หลัง commit ID แล้วนำไฟล์หลัง commit มาใส่ใน staging area"
+},
+{
+  "_id": {
+    "$oid": "66921ca83b2d1d818fdedb07"
+  },
+  "command": " Git reset —mixed",
+  "working": " ลบไฟล์หลัง commit ID แล้วนำไฟล์หลัง commit มาใส่ใน working directory"
+},
+{
+  "_id": {
+    "$oid": "66921ca83b2d1d818fdedb08"
+  },
+  "command": " Git reset —hard",
+  "working": " ลบไฟล์หลัง commit ID"
+},
+{
+  "_id": {
+    "$oid": "66921ca83b2d1d818fdedb09"
+  },
+  "command": " Git branch",
+  "working": " showing branch"
+},
+{
+  "_id": {
+    "$oid": "66921ca83b2d1d818fdedb0a"
+  },
+  "command": " Git checkout -b branch name",
+  "working": " shuffle and create branch"
+},
+{
+  "_id": {
+    "$oid": "66921ca83b2d1d818fdedb0b"
+  },
+  "command": " Git checkout master",
+  "working": " going to  main branch"
+},
+{
+  "_id": {
+    "$oid": "66921ca83b2d1d818fdedb0c"
+  },
+  "command": " Git merge",
+  "working": "merging branch"
+},
+{
+  "_id": {
+    "$oid": "66921ca83b2d1d818fdedb0d"
+  },
+  "command": " Git pull",
+  "working": " ทำให้ code ฝั่ง local เหมือนกับ ฝั่งบน GitHub"
+},
+{
+  "_id": {
+    "$oid": "66921ca83b2d1d818fdedb0e"
+  },
+  "command": " Git push",
+  "working": " ทำให้ code ฝั่ง Github เหมือนกับ ฝั่งบน local"
+}]

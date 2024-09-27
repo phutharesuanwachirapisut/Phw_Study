@@ -1,0 +1,9 @@
+_id,name,age,email,department,social[0],social[1],social[2],social[3],general.weight,general.heigh,general.gender
+668fc9fb170e157dab0db578,Phutharesuan,20,phutharesuan.abc@gmail.com,,,,,,,,
+668fca2f170e157dab0db579,KongRukSiam,33,kongruksiam.abc@gmail.com,,,,,,,,
+668fca86170e157dab0db57a,Tom,600,tommy.shelpy.abc@gmail.com,Professor,,,,,,,
+668fcc14170e157dab0db57f,Alice,32,,Teacher,,,,,,,
+668fcc14170e157dab0db580,Doremon,30000,,Nany,,,,,,,
+668fcccc170e157dab0db581,John,12,john.shelpy.abc@gmail.com,,facebook,instagram,thread,twiter,,,
+668fcdb1170e157dab0db582,John,12,john.shelpy.abc@gmail.com,,,,,,60,175,male
+668fcdcf170e157dab0db583,John,12,john.shelpy.abc@gmail.com,,123,instagram,thread,twiter,,,

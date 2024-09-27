@@ -1,0 +1,5 @@
+name=Kally
+surname=Brown
+year=2020
+color=blue
+theme=sky

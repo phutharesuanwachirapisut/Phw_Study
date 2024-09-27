@@ -1,0 +1,11 @@
+*.psd filter=lfs diff=lfs merge=lfs -text
+.venv/lib/python3.12/site-packages/clang/native/libclang.dylib filter=lfs diff=lfs merge=lfs -text
+.venv/lib/python3.12/site-packages/tensorflow/compiler/mlir/stablehlo/stablehlo_extension.so filter=lfs diff=lfs merge=lfs -text
+Dataset/mnist-original.mat filter=lfs diff=lfs merge=lfs -text
+7d7630cfbe327ccc254570de151186fcb5e094170dd6cb90a66338903fc6e34b
+SQL/PP.db filter=lfs diff=lfs merge=lfs -text
+.venv/lib/python3.12/site-packages/tensorflow/libtensorflow_cc.2.dylib
+*.unity filter=lfs diff=lfs merge=lfs -text
+*.ipynb filter=lfs diff=lfs merge=lfs -text
+*.db filter=lfs diff=lfs merge=lfs -text
+*.csv filter=lfs diff=lfs merge=lfs -text

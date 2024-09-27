@@ -1,0 +1,3 @@
+"command","working"
+"Use db","Select db "
+"db.table.updateOne({ชื่อ filed ที่เราจะใช้เป็น Condition1 },{ชื่อ filed ที่เราจะใช้เป็น Condition2 }, { $set: {field ที่เราจะแก้ไข: ข้อมูลใหม่ที่เราจะแก้ไข}})","แก้ไขข้อมูลตาม Condition ข้อมูลแรก"

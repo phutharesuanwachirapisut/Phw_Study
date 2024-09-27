@@ -1,0 +1,105 @@
+[{
+  "_id": {
+    "$oid": "66921cf63b2d1d818fdedb15"
+  },
+  "command": "use db",
+  "working": "Select db "
+},
+{
+  "_id": {
+    "$oid": "66921cf63b2d1d818fdedb16"
+  },
+  "command": "db.collection.updateOne({ชื่อ filed ที่เราจะใช้เป็น Condition1 },{ชื่อ filed ที่เราจะใช้เป็น Condition2 }, { $set: {field ที่เราจะแก้ไข: ข้อมูลใหม่ที่เราจะแก้ไข}})",
+  "working": "แก้ไขข้อมูลตาม Condition ข้อมูลแรก"
+},
+{
+  "_id": {
+    "$oid": "66921d07170e157dab0db586"
+  },
+  "command": "db.collection.insertOne({field:ข้อมูลที่จะเพิ่ม,field:ข้อมูลที่จะเพิ่ม,field:ข้อมูลที่จะเพิ่ม,....})",
+  "working": "การเพิ่มข้อมูลแบบ 1 ชนิด"
+},
+{
+  "_id": {
+    "$oid": "66921e1a170e157dab0db587"
+  },
+  "command": "db.collection.updateMany({field:ข้อมูลที่จะเพิ่ม,field:ข้อมูลที่จะเพิ่ม,field:ข้อมูลที่จะเพิ่ม,....})",
+  "working": "แก้ไขข้อมูลหลายข้อมูลที่ตรงตาม Condition"
+},
+{
+  "_id": {
+    "$oid": "66921fb5170e157dab0db588"
+  },
+  "command": "db.collection.deleteMany({field:document})",
+  "working": "ลบ Document แบบหลาย Document ตาม Condition"
+},
+{
+  "_id": {
+    "$oid": "669223c7170e157dab0db58a"
+  },
+  "command": "db.collection.aggregate([{$project:{field:number (number = 0 -> ไม่แสดง, number = 1 -> แสดง), field:number}}])",
+  "working": "เป็นการเลือกแสดง แบบ SELECT ใน SQL"
+},
+{
+  "_id": {
+    "$oid": "669228ae170e157dab0db58b"
+  },
+  "command": "db.collection.aggregate([{$match:{codition}},{$project:{field}}])",
+  "working": "$match เหมือน where ใน sql เป็นการเลือกข้อมูลตาม condition"
+},
+{
+  "_id": {
+    "$oid": "6692299a170e157dab0db58d"
+  },
+  "command": "db.collection.find({field:{$eq:condition}})",
+  "working": "ค้นหาข้อมูลที่ตรง condition and in the condition you can use $eq, $lt, $lte, $ne, $gt, $gte สำหรับเป็นเงื่อนไชในการเปรียบเทียบ"
+},
+{
+  "_id": {
+    "$oid": "6692311d170e157dab0db58e"
+  },
+  "command": "db.collection.aggregate([{$match:{condition}},{$count:Text}])",
+  "working": "นับจำนวนตาม Condition แล้วแสดงในรูปแบบ Text"
+},
+{
+  "_id": {
+    "$oid": "669236a1170e157dab0db58f"
+  },
+  "command": "db.collection.aggregate([{$project:{field}}, {$sort:{field:1 or -1 โดย 1 คือ จากน้อยไปมาก}}])",
+  "working": "Order By ใน SQL"
+},
+{
+  "_id": {
+    "$oid": "669236b9170e157dab0db590"
+  },
+  "command": "db.collection.aggregate([{$project:{field}}, {$limit:number}])",
+  "working": "limit ใน SQL"
+},
+{
+  "_id": {
+    "$oid": "6692382a170e157dab0db591"
+  },
+  "command": "db.collection.aggregate([{$project:{_id:0, name:1}}, {$skip:number}])",
+  "working": "ข้ามข้อมนูลในส่วนแรก จำนวน n"
+},
+{
+  "_id": {
+    "$oid": "66923aad170e157dab0db592"
+  },
+  "command": "db.collection.aggregate([{$group:{_id:'$field' ถ้าเจาะลึกลงใน field ใช้ #field.document , Text:{$count:{}} แต่ถ้า ใช้ operetor จะเป็น Text:{$operetor:'$field'} }}])",
+  "working": "จัดกลุ่ม และนับจำนวนในแต่ละกลุ่ม operetor=[$sum, $avg, $min, $max, $first, $last]"
+},
+{
+  "_id": {
+    "$oid": "6692441c170e157dab0db593"
+  },
+  "command": "db.collection.aggregate([{$group:{_id:'$field', 'min_salary':{$min:'$field'}, 'name':{$push:{sub_name:'$field', sub_name:'$field'}} ถ้าเป็น addToSet -> 'name': {$addToSet:'$field'}}}, {$sort:{_id:1}}])",
+  "working": "เพิ่มข้อมูลรายละเอียดเพิ่ม ถ้าเป็น addToSet จะต้องได้ค่าที่แยกออกมาแล้วข้อมูลไม่ซ้ำกัน เพราะเป็นแบบ array "
+},
+{
+  "_id": {
+    "$oid": "669247fb170e157dab0db594"
+  },
+  "command": "db.local collection.aggregate([{$lookup:{ from:'foreign collection' , localField:'field ที่เหมือนกันของ local เพื่อนำมา join',foreignField:'field ที่เหมือนกันของ foreign', as:'alias'}}])",
+  "working": "เป็นการใช้ local join เป็นการ join ที่ขึ้นกับ local โดยเอาข้อมูลเฉพาะที่ local มีเท่านั้น ไม่เอา row ที่ local ไม่มี"
+}]
